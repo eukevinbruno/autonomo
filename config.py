@@ -63,6 +63,7 @@ COMBOS_DE_SERVICOS = [
             "Otimização de software"
         ],
         "preco_sugerido": "R$ 150 - 200",
+        "nivel_do_combo": 1
     },
     {
         "nome_do_combo": "PC Novo de Novo",
@@ -73,6 +74,7 @@ COMBOS_DE_SERVICOS = [
             "Otimização de software"
         ],
         "preco_sugerido": "R$ 200 - 280",
+        "nivel_do_combo": 2
     },
     {
         "nome_do_combo": "Manutenção Total",
@@ -83,5 +85,6 @@ COMBOS_DE_SERVICOS = [
             "Configuração de rotina de backup"
         ],
         "preco_sugerido": "R$ 250 - 350",
+        "nivel_do_combo": 3
     },
 ]

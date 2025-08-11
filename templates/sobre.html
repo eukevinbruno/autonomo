@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    {{ configuracoes.nome_da_empresa }} | Sobre Nós
+{% endblock %}
+
+{% block conteudo %}
+<section class="secao-sobre-nos">
+    <div class="container">
+        <h2>Nossa História e Missão</h2>
+        <p>A <strong>{{ configuracoes.nome_da_empresa }}</strong> nasceu da paixão por tecnologia e do desejo de oferecer soluções acessíveis e eficientes para problemas do dia a dia com computadores. Fundada por Kevin Bruno, nossa missão é ser o seu parceiro de confiança em TI, garantindo que você tenha um equipamento rápido, seguro e sempre pronto para o uso.</p>
+        <p>Acreditamos em um atendimento transparente, preços justos e um serviço de alta qualidade que realmente faz a diferença na vida dos nossos clientes.</p>
+        
+        <h3>Nossos Valores</h3>
+        <ul class="lista-de-valores">
+            <li><i class="fa-solid fa-handshake"></i> Transparência</li>
+            <li><i class="fa-solid fa-heart"></i> Compromisso</li>
+            <li><i class="fa-solid fa-head-side-virus"></i> Conhecimento</li>
+            <li><i class="fa-solid fa-users"></i> Foco no Cliente</li>
+        </ul>
+    </div>
+</section>
+{% endblock %}

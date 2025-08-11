@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    {{ configuracoes.nome_da_empresa }} | Contato
+{% endblock %}
+
+{% block conteudo %}
+<section class="secao-contato">
+    <div class="container">
+        <h2>Entre em Contato</h2>
+        <p>Tem alguma dúvida ou precisa de um orçamento? Preencha o formulário abaixo ou fale diretamente conosco pelo WhatsApp.</p>
+        
+        <form action="#" method="POST" class="formulario-de-contato">
+            <div class="campo-de-formulario">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome_do_contato" required>
+            </div>
+            <div class="campo-de-formulario">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email_do_contato" required>
+            </div>
+            <div class="campo-de-formulario">
+                <label for="mensagem">Sua Mensagem</label>
+                <textarea id="mensagem" name="mensagem_do_contato" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="bt-enviar-formulario">Enviar Mensagem</button>
+        </form>
+
+        <div class="info-contato-rodape">
+            <h3>Nossos Contatos</h3>
+            <p><i class="fa-brands fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/{{ configuracoes.contato_whatsapp }}" target="_blank">{{ configuracoes.contato_whatsapp }}</a></p>
+            <p><i class="fa-brands fa-instagram"></i> Instagram: <a href="https://www.instagram.com/{{ configuracoes.contato_instagram | replace('@', '') }}/" target="_blank">{{ configuracoes.contato_instagram }}</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

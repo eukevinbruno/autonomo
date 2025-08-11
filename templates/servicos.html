@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    {{ configuracoes.nome_da_empresa }} | Serviços
+{% endblock %}
+
+{% block conteudo %}
+<section class="secao-servicos" id="servicos">
+    <div class="container">
+        <h2>Serviços Avulsos</h2>
+        <div class="cards-container">
+            {% for servico in servicos %}
+            <article class="cartao-servico">
+                <div class="icone-cartao"><i class="fa-solid fa-gear"></i></div>
+                <h3>{{ servico.nome_do_servico }}</h3>
+                <p>{{ servico.descricao_do_servico }}</p>
+                <p class="preco">Preço Sugerido: {{ servico.preco_sugerido }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

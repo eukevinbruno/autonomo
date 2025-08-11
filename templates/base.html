@@ -13,14 +13,16 @@
             <button class="bt-menu-sanduiche" aria-expanded="false" aria-controls="menu-navegacao">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <a href="/" class="link-logo">
+            <a href="{{ url_for('pagina_inicial') }}" class="link-logo">
                 <h1 class="titulo-principal">{{ configuracoes.nome_da_empresa }}</h1>
             </a>
             <nav id="menu-navegacao" class="menu-de-navegacao">
                 <ul class="lista-de-links">
-                    <li><a href="{{ url_for('pagina_inicial') }}#servicos" class="link-de-navegacao">Serviços</a></li>
-                    <li><a href="{{ url_for('pagina_inicial') }}#combos" class="link-de-navegacao">Combos</a></li>
-                    <li><a href="https://wa.me/{{ configuracoes.contato_whatsapp }}" class="link-de-navegacao">Contato</a></li>
+                    <li><a href="{{ url_for('pagina_inicial') }}" class="link-de-navegacao">Início</a></li>
+                    <li><a href="{{ url_for('pagina_servicos') }}" class="link-de-navegacao">Serviços</a></li>
+                    <li><a href="{{ url_for('pagina_combos') }}" class="link-de-navegacao">Combos</a></li>
+                    <li><a href="{{ url_for('pagina_sobre') }}" class="link-de-navegacao">Sobre Nós</a></li>
+                    <li><a href="{{ url_for('pagina_contato') }}" class="link-de-navegacao">Contato</a></li>
                 </ul>
                 <div class="nome-no-menu-rodape">
                     {{ configuracoes.nome_da_empresa }}
@@ -29,8 +31,6 @@
         </div>
     </header>
 
-    <div class="menu-overlay" aria-label="Fechar Menu"></div>
-
     <main class="conteudo-principal">
         {% block conteudo %}
         {% endblock %}
@@ -38,10 +38,24 @@
 
     <footer class="rodape">
         <div class="container">
-            <div class="links-sociais">
-                <a href="https://www.instagram.com/eukevinbruno/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <div class="secoes-do-rodape">
+                <div class="secao-links-uteis">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="{{ url_for('pagina_servicos') }}">Nossos Serviços</a></li>
+                        <li><a href="{{ url_for('pagina_combos') }}">Conheça os Combos</a></li>
+                        <li><a href="{{ url_for('pagina_sobre') }}">Nossa História</a></li>
+                    </ul>
+                </div>
+                <div class="secao-contato">
+                    <h4>Contato</h4>
+                    <p>Entre em contato conosco!</p>
+                    <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/{{ configuracoes.contato_whatsapp }}">{{ configuracoes.contato_whatsapp }}</a></p>
+                </div>
             </div>
-            <p>Entre em contato: <a href="https://wa.me/{{ configuracoes.contato_whatsapp }}">{{ configuracoes.contato_whatsapp }}</a></p>
+            <div class="links-sociais">
+                <a href="https://www.instagram.com/{{ configuracoes.contato_instagram | replace('@', '') }}/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
             <p>&copy; 2024 {{ configuracoes.nome_da_empresa }}. Todos os direitos reservados.</p>
         </div>
     </footer>
