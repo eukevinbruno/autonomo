@@ -1,0 +1,377 @@
+/* =====================#
+# Reset e Estilos Globais#
+# ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden; /* Garantia de que não haverá rolagem horizontal */
+}
+
+.container {
+    padding: 0 20px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* =====================#
+# Componentes do Site#
+# ===================== */
+
+/* Estilos do cabeçalho */
+.cabecalho {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    padding: 15px 0;
+    background-color: #0056b3;
+}
+
+.cabecalho .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bt-menu-sanduiche {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    color: white;
+    cursor: pointer;
+    display: block;
+    margin-right: 15px;
+}
+
+.link-logo {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: right;
+}
+
+.menu-de-navegacao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #0056b3;
+    z-index: 20;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 15;
+    display: none;
+}
+
+.menu-aberto .menu-de-navegacao {
+    transform: translateX(0);
+}
+
+.menu-aberto .menu-overlay {
+    display: block;
+}
+
+.lista-de-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-de-links a {
+    padding: 15px 20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lista-de-links a:hover {
+    background-color: #004a99;
+}
+
+.nome-no-menu-rodape {
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+}
+
+/* Estilos para a Hero Section (com gradiente) */
+.hero-section {
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #0056b3, #334d6e);
+}
+
+.hero-conteudo {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.slogan {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.descricao-hero {
+    font-size: 1em;
+    margin: 0 auto 20px;
+    opacity: 0.9;
+}
+
+.bt-chamada-principal {
+    display: inline-block;
+    width: auto;
+    padding: 15px 30px;
+    text-align: center;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.bt-chamada-principal:hover {
+    background-color: #218838;
+}
+
+.conteudo-principal {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.secao-servicos, .secao-combos {
+    background-color: #f4f4f4;
+    padding: 0;
+    margin-bottom: 20px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Estilos para os Cartões de Serviço e Combo */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+/* Estilos específicos para a rolagem horizontal */
+.cards-container-rolagem {
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    padding: 0 20px 10px;
+}
+
+.cards-container-rolagem .cartao-combo {
+    flex: 0 0 calc(100% - 40px);
+    scroll-snap-align: start;
+}
+
+
+.cartao-servico, .cartao-combo {
+    position: relative;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 20px;
+}
+
+.cartao-servico:hover, .cartao-combo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.icone-cartao {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #0056b3;
+    color: white;
+    font-size: 1.2em;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.secao-servicos h2, .secao-combos h2 {
+    color: #0056b3;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.cartao-servico h3, .cartao-combo h3 {
+    font-size: 1.2em;
+    color: #0056b3;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #eee;
+}
+
+.cartao-servico p, .cartao-combo p {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.cartao-combo ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.cartao-combo li {
+    font-size: 0.9em;
+    color: #333;
+    padding-left: 30px;
+    margin-bottom: 8px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#28a745" class="bi bi-check" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-4.5 4.5a.75.75 0 0 0-1.07 0l-2-2a.75.75 0 1 1 1.07-1.05L6.5 8.293l4.195-4.225z"/></svg>') no-repeat left center;
+    background-size: 20px;
+}
+
+.preco {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #0056b3;
+    margin-top: 15px;
+}
+
+.rodape {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    padding: 30px 0;
+    background-color: #e9e9e9;
+}
+
+.rodape a {
+    color: #0056b3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.rodape a:hover {
+    color: #007bff;
+}
+
+.links-sociais {
+    margin-bottom: 15px;
+}
+
+.links-sociais a {
+    font-size: 1.8em;
+    margin: 0 10px;
+}
+
+/* =====================#
+# Media Queries para Desktop#
+# ===================== */
+@media (min-width: 601px) {
+    .cabecalho .container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .bt-menu-sanduiche, .menu-overlay {
+        display: none;
+    }
+
+    .link-logo {
+        margin-bottom: 0;
+        text-align: left;
+        font-size: 1.5em;
+    }
+
+    .menu-de-navegacao {
+        display: block;
+        position: static;
+        width: auto;
+        height: auto;
+        box-shadow: none;
+        transform: translateX(0);
+        padding-top: 0;
+    }
+
+    .lista-de-links {
+        flex-direction: row;
+        gap: 15px;
+    }
+    
+    .lista-de-links a {
+        border-bottom: none;
+        padding: 5px 10px;
+    }
+
+    .conteudo-principal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding-top: 50px;
+    }
+    
+    .secao-servicos h2, .secao-combos h2 {
+        text-align: left;
+    }
+
+    .secao-servicos .cards-container, .secao-combos .cards-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 0;
+    }
+    
+    .cards-container-rolagem {
+        flex-direction: column;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding: 0;
+        margin: 0;
+        gap: 15px;
+    }
+    
+    .cards-container-rolagem .cartao-combo {
+        width: auto;
+    }
+
+    .secao-apresentacao {
+        grid-column: span 2;
+    }
+}

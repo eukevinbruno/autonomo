@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    {{ configuracoes.nome_da_empresa }} | Home
+{% endblock %}
+
+{% block conteudo %}
+<section class="secao-apresentacao hero-section">
+    <div class="hero-conteudo">
+        <h2 class="slogan">Soluções em TI para o seu computador.</h2>
+        <p class="descricao-hero">Deixe seu equipamento mais rápido, seguro e eficiente. Oferecemos diagnósticos, manutenção e otimização para você não se preocupar com nada.</p>
+        <a href="https://wa.me/{{ configuracoes.contato_whatsapp }}" target="_blank" class="bt-chamada-principal">Fale Conosco pelo WhatsApp</a>
+    </div>
+</section>
+
+<section class="secao-servicos" id="servicos">
+    <h2>Serviços Avulsos</h2>
+    <div class="cards-container">
+        {% for servico in servicos %}
+        <article class="cartao-servico">
+            <div class="icone-cartao"><i class="fa-solid fa-gear"></i></div>
+            <h3>{{ servico.nome_do_servico }}</h3>
+            <p>{{ servico.descricao_do_servico }}</p>
+            <p class="preco">Preço Sugerido: {{ servico.preco_sugerido }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="secao-combos" id="combos">
+    <h2>Combos de Serviços</h2>
+    <div class="cards-container cards-container-rolagem">
+        {% for combo in combos %}
+        <article class="cartao-combo">
+            <div class="icone-cartao"><i class="fa-solid fa-box-open"></i></div>
+            <h3>{{ combo.nome_do_combo }}</h3>
+            <p>{{ combo.descricao_do_combo }}</p>
+            <ul>
+                {% for beneficio in combo.beneficios %}
+                <li>{{ beneficio }}</li>
+                {% endfor %}
+            </ul>
+            <p class="preco">Preço Sugerido: {{ combo.preco_sugerido }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

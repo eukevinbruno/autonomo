@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="corpo-da-pagina">
+    <header class="cabecalho">
+        <div class="container">
+            <button class="bt-menu-sanduiche" aria-expanded="false" aria-controls="menu-navegacao">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <a href="/" class="link-logo">
+                <h1 class="titulo-principal">{{ configuracoes.nome_da_empresa }}</h1>
+            </a>
+            <nav id="menu-navegacao" class="menu-de-navegacao">
+                <ul class="lista-de-links">
+                    <li><a href="{{ url_for('pagina_inicial') }}#servicos" class="link-de-navegacao">Serviços</a></li>
+                    <li><a href="{{ url_for('pagina_inicial') }}#combos" class="link-de-navegacao">Combos</a></li>
+                    <li><a href="https://wa.me/{{ configuracoes.contato_whatsapp }}" class="link-de-navegacao">Contato</a></li>
+                </ul>
+                <div class="nome-no-menu-rodape">
+                    {{ configuracoes.nome_da_empresa }}
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="menu-overlay" aria-label="Fechar Menu"></div>
+
+    <main class="conteudo-principal">
+        {% block conteudo %}
+        {% endblock %}
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="links-sociais">
+                <a href="https://www.instagram.com/eukevinbruno/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <p>Entre em contato: <a href="https://wa.me/{{ configuracoes.contato_whatsapp }}">{{ configuracoes.contato_whatsapp }}</a></p>
+            <p>&copy; 2024 {{ configuracoes.nome_da_empresa }}. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>
